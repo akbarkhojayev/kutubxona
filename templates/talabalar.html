@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<h1>Talabalar Royhati</h1>
+<form>
+    <input type="text" name="q_soz" placeholder="Ism orqali qidiring.."
+    {% if q_soz %} value="{{ q_soz }}" {% endif %}
+    >
+    <button>Qidirish</button>
+</form>
 
-</body>
-</html>
+<hr>
+
+<a href="/">Bosh sahifa</a>
+
+
+
+{% for talaba in talabalar %}
+
+<p>
+    {{ forloop.counter }}.
+    <a href="/talabalar/{{ talaba.id }}/">
+        {{talaba.ism}}
+    </a>
+    <a href="/talabalar/{{ talaba.id }}/delete/">
+        <button>O'chirish</button>
+    </a>
+</p>
+{% endfor %}
+
+<hr>
+<h3>Talaba qoshish</h3>
+
+<form method="post">
+    {%csrf_token %}
+    <label>Ism</label>
+    <input type="text" name="ism">
+    <label>Kurs</label>
+    <input type="number" name="kurs">
+    <label>Guruh</label>
+    <input type="text" name="guruh">
+     <br><br>
+    <label>Tel</label>
+    <input type="text" name="tel">
+    <label>Yosh</label>
+    <input type="number" name="yosh">
+    <label>Kitob soni</label>
+    <input type="number" name="kitob_soni">
+    <br><br>
+    <button>Qo'shish</button>
+</form>

@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<h1> Kitoblar royhati </h1>
+<form>
+    <input type="text" name="qsoz" placeholder="Kitob nomi kiriting.."
+    {% if qsoz %} value="{{qsoz}}" {% endif %}
+    >
+    <button>Qidirish</button>
+</form>
+<hr>
+<a href="/">Bosh sahifa</a>
 
-</body>
-</html>
+
+{% for kitob in kitoblar %}
+
+
+<p>
+    {{ forloop.counter }}.
+    <a href="/kitoblar/{{ kitob.id }}/">
+        {{kitob.nom}}
+    </a>
+    <a href="/kitoblar/{{ kitob.id }}/delete/">
+        <button>O'chirish</button>
+    </a>
+</p>
+{% endfor %}
+<a href="/kitob-qoshish/">
+    <button>Kitob qoshish</button>
+</a>

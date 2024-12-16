@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<h1>Recordlar Royhati</h1>
+<hr>
+
+<a href="/">Bosh sahifa</a>
+
+
+{% for record in recordlar %}
+
+
+<p>{{ forloop.counter }}.
+    <a href="/recordlar/{{record.id}}/">. {{record.talaba}}
+    </a>
+    <a href="/recordlar/{{ record.id }}/delete/">
+        <button>O'chirish</button>
+    </a>
+{% endfor %}
+    <br><br>
+<a href="/record_qoshish/">
+    <button>Record qoshish</button>
+</a>

@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<h1>Mualliflar Royhati</h1>
+<form>
+    <input type="text" name="qsoz1" placeholder="Muallif ismini kiriting.."
+    {% if qsoz1 %} value="{{qsoz1}}" {% endif %}>
+    <button>
+        Qidirish
+    </button>
 
-</body>
-</html>
+</form>
+
+
+<hr>
+<a href="/">Bosh sahifa</a>
+
+
+{% for muallif in mualliflar %}
+<a href="/mualliflar/{{muallif.id}}/">
+<p>{{ forloop.counter }}. {{muallif.ism}}</p>
+</a>
+{% endfor %}
+
+<hr>
+
+<h3>Muallif qoshish</h3>
+
+<form method="post">
+    {% csrf_token %}
+    <label>Ism</label>
+    <input type="text" name="ism">
+
+    <label>Millat</label>
+    <input type="text" name="millat">
+
+    <label>Jins</label>
+    <select name="jins">
+        <option>Erkak</option>
+        <option>Ayol</option>
+    </select>
+
+    <br><br>
+
+    <label>Kitob soni</label>
+    <input type="text" name="kitoblar_soni">
+    <label>Tirik</label>
+    <input name="tirik" type="checkbox">
+    <label>Tugilgan sana</label>
+    <input name="t_yil" type="date">
+    <br><br>
+    <button>Qoshish</button>
+
+</form>
