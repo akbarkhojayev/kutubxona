@@ -1,31 +1,7 @@
 <h1>Yangi Record </h1>
 <hr>
-<form>
-    <label>Olingan sana</label>
-    <input name="olingan_sana" , type="date">
-    <br>
-    <label>Qaytarilgan sana</label>
-    <input name="qaytarilgan_sana" , type="date">
-    <br>
-    <label>Qaytardi</label>
-    <select name="qaytardi">
-        <option>True</option>
-        <option>False</option>
-    </select>
-    <br>
-    <label> Mualliflar </label>
-    <select name="talaba_id">
-        {% for talaba in talabalar %}
-            <option value="{{talaba_id}}">{{ talaba.ism }}</option>
-        {% endfor %}
-    </select>
-
-    <label> Kitoblar </label>
-    <select name="kitob_id">
-        {% for kitob in kitoblar %}
-            <option value="{{kitob_id}}">{{ kitob.nom }}</option>
-        {% endfor %}
-
-    </select>
+<form method="post">
+    {%csrf_token %}
+    {{ form.as_p }}
     <button>Qoshish</button>
 </form>

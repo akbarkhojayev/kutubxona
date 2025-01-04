@@ -22,6 +22,9 @@
     <a href="/talabalar/{{ talaba.id }}/delete/">
         <button>O'chirish</button>
     </a>
+     <a href="/talabalar/{{ talaba.id }}/update/">
+        <button>Tahrirlash</button>
+    </a>
 </p>
 {% endfor %}
 
@@ -30,19 +33,20 @@
 
 <form method="post">
     {%csrf_token %}
-    <label>Ism</label>
-    <input type="text" name="ism">
-    <label>Kurs</label>
-    <input type="number" name="kurs">
-    <label>Guruh</label>
-    <input type="text" name="guruh">
-     <br><br>
-    <label>Tel</label>
-    <input type="text" name="tel">
-    <label>Yosh</label>
-    <input type="number" name="yosh">
-    <label>Kitob soni</label>
-    <input type="number" name="kitob_soni">
-    <br><br>
+    {{ form.as_p }}
     <button>Qo'shish</button>
 </form>
+<!--<label>Ism</label>-->
+<!--    <input type="text" name="ism">-->
+<!--    <label>Kurs</label>-->
+<!--    <input type="number" name="kurs">-->
+<!--    <label>Guruh</label>-->
+<!--    <input type="text" name="guruh">-->
+<!--     <br><br>-->
+<!--    <label>Tel</label>-->
+<!--    <input type="text" name="tel">-->
+<!--    <label>Yosh</label>-->
+<!--    <input type="number" name="yosh">-->
+<!--    <label>Kitob soni</label>-->
+<!--    <input type="number" name="kitob_soni">-->
+<!--    <br><br>-->

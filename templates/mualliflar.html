@@ -14,9 +14,14 @@
 
 
 {% for muallif in mualliflar %}
-<a href="/mualliflar/{{muallif.id}}/">
-<p>{{ forloop.counter }}. {{muallif.ism}}</p>
+ <a href="/mualliflar/{{muallif.id}}/">
+<p>
+    {{ forloop.counter }}. {{muallif.ism}}
+    <a href="/mualliflar/{{muallif.id}}/update/">
+        <button>Tahrirlash</button>
 </a>
+</p>
+ </a>
 {% endfor %}
 
 <hr>
@@ -25,27 +30,6 @@
 
 <form method="post">
     {% csrf_token %}
-    <label>Ism</label>
-    <input type="text" name="ism">
-
-    <label>Millat</label>
-    <input type="text" name="millat">
-
-    <label>Jins</label>
-    <select name="jins">
-        <option>Erkak</option>
-        <option>Ayol</option>
-    </select>
-
-    <br><br>
-
-    <label>Kitob soni</label>
-    <input type="text" name="kitoblar_soni">
-    <label>Tirik</label>
-    <input name="tirik" type="checkbox">
-    <label>Tugilgan sana</label>
-    <input name="t_yil" type="date">
-    <br><br>
+    {{ form.as_p }}
     <button>Qoshish</button>
-
 </form>

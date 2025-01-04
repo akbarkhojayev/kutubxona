@@ -37,7 +37,7 @@ class Kitob(models.Model):
         ('Qattiq','Qattiq'),
         ('Yumshoq','Yumshoq'),
              ))
-    muallif = models.ManyToManyField(Muallif)
+    muallif = models.ForeignKey(Muallif ,on_delete=models.CASCADE)
 
 
     def __str__(self):

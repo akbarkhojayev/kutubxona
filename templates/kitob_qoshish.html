@@ -2,27 +2,6 @@
 <hr>
 <form method="post">
     {% csrf_token %}
-    <label>Nom:</label>
-    <input name="nom" type="text">
-    <br><br>
-    <label>Janr</label>
-    <input name="janr" type="text">
-    <br><br>
-    <label>Sahifa</label>
-    <input name='sahifa' type="number">
-    <br><br>
-    <label>Muqova</label>
-    <select name="muqova">
-        <option>Qattiq</option>
-        <option>Yumshoq</option>
-    </select>
-    <br><br>
-    <label>Muallif</label>
-    <select name="muallif_id">
-        {% for muallif in mualliflar %}
-            <option value="{{ muallif.id }}"> {{ muallif.ism }}</option>
-        {% endfor %}
-    </select>
-    <br><br>
+    {{ form.as_p }}
     <button>Qo'shish</button>
 </form>
